@@ -23,18 +23,30 @@ score = 0
 guesses = []
 
 while score < 50:
-    user_answer = screen.textinput(title=f"{score}/50 Guess the State", prompt="Name a state:").title()
+    user_answer = screen.textinput(title=f"{score}/50 correct guesses", prompt="Name a state:").title()
+
+    if user_answer == "Exit":
+        unguessed_states = {"states": []}
+        for state in states.values:
+            if state not in guesses:
+                unguessed_states["states"].append(state)
+
+        new_df = pandas.DataFrame(unguessed_states)
+        new_df.to_csv("states_to_learn.csv")
+        break
 
     if user_answer in states.values:
-        turtle.penup()
+        t = turtle.Turtle()
+        t.hideturtle()
+        t.penup()
         x_coor = float(return_x_coor(user_answer))
         y_coor = float(return_y_coor(user_answer))
-        turtle.goto(x_coor, y_coor)
-        turtle.write(user_answer)
+        t.goto(x_coor, y_coor)
+        t.write(user_answer)
         score += 1
         guesses.append(user_answer)
         
     else:
-        print(False)
+        pass
 
 turtle.mainloop()
