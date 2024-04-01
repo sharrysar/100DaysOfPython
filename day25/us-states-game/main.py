@@ -26,10 +26,7 @@ while score < 50:
     user_answer = screen.textinput(title=f"{score}/50 correct guesses", prompt="Name a state:").title()
 
     if user_answer == "Exit":
-        unguessed_states = {"states": []}
-        for state in states.values:
-            if state not in guesses:
-                unguessed_states["states"].append(state)
+        unguessed_states = [state for state in states.values if state not in guesses]
 
         new_df = pandas.DataFrame(unguessed_states)
         new_df.to_csv("states_to_learn.csv")
