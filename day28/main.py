@@ -33,19 +33,19 @@ canvas.grid(column=1, row=1)
 # label set up
 timer_label = Label(text="Timer", fg=GREEN, bg=YELLOW)
 timer_label.grid(column=1, row=0)
-timer_label.config(font=(FONT_NAME, 35))
+timer_label.config(font=(FONT_NAME, 35, "bold"))
 
 # start button
-start_btn = Button(text="Start")
+start_btn = Button(text="Start", highlightthickness=0)
 start_btn.grid(column=0, row=2)
 
 # reset button
-reset_btn = Button(text="Reset")
+reset_btn = Button(text="Reset", highlightthickness=0)
 reset_btn.grid(column=2, row=2)
 
-# fire emoji
-fire_emoji = Label(text="✔", fg=GREEN, bg=YELLOW)
-fire_emoji.grid(column=1, row=3)
-fire_emoji.config(font=(FONT_NAME, 35))
+# check mark
+check_mark = Label(text="✔", fg=GREEN, bg=YELLOW)
+check_mark.grid(column=1, row=3)
+check_mark.config(font=(FONT_NAME, 35))
 
 window.mainloop()
