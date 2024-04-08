@@ -40,4 +40,3 @@ def make_pie(index):
 
 # 🚨 Do not change the code below
 make_pie(4)
-
